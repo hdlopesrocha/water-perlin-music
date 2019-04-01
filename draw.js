@@ -38,26 +38,20 @@ noise.seed(Math.random());
 
 function getPoint(canvas,cx,cy,cr,perc, t0, time,dataArray,freqArray,isPlaying) {
 	var i0 = scale(perc,0,1,0, freqArray.length-1);
-	var i1 = scale(1-perc,0,1,0, freqArray.length-1);
-
 	var i0p = i0 - Math.floor(i0);
-	var i1p = i1 - Math.floor(i1);
-
 	var i0i = parseInt(i0);
-	var i1i = parseInt(i1);
-
 	var f0 = freqArray[i0i]*(1-i0p)+freqArray[(i0i+1)%freqArray.length]*(i0p);
-	var f1 = freqArray[i1i]*(1-i1p)+freqArray[(i1i+1)%freqArray.length]*(i1p);
 
 
-	var f = (f0+f1)*0.2;
+
+	var f = f0*0.4;
 	if (isNaN(f)) {
 		f = 0.0;
 	}
 
 
-	var sx = 0.15*Math.sin(perc*2*Math.PI)+t0;
-	var sy = 0.15*Math.cos(perc*2*Math.PI);
+	var sx = 0.5*perc+t0;
+	var sy = 0.5*perc;
 	var sr = myNoise3dx(sx, sy, (time+f/256), 1.0);
 
 

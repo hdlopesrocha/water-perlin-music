@@ -61,7 +61,7 @@
 					context = new AudioContext();
 					source = context.createBufferSource(); 
 					analyser = context.createAnalyser();
-analyser.fftSize = 128;
+analyser.fftSize = 32;
 					source.connect(analyser); 
 					analyser.connect(context.destination);
 
