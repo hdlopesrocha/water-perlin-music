@@ -63,7 +63,7 @@ function getPoint(canvas,cx,cy,cr,perc, t0, time,dataArray,freqArray,isPlaying) 
 
 	return {
 		x: perc * canvas.width,			
-		y: (2*sr*cr)+canvas.height/2
+		y: canvas.height/2-(2*sr*cr+f)
 	};
 }
 
